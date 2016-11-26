@@ -1,0 +1,108 @@
+<project>
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>walkingdevs</groupId>
+        <artifactId>parent</artifactId>
+        <version>5</version>
+        <relativePath/>
+    </parent>
+
+    <groupId>${groupId}</groupId>
+    <artifactId>${artifactId}</artifactId>
+    <version>${version}</version>
+    <packaging>war</packaging>
+
+    <dependencies>
+        <dependency>
+            <groupId>${jee-api-groupId}</groupId>
+            <artifactId>${jee-api-artifactId}</artifactId>
+            <version>${jee-api-version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>${tomee-commons-lang3-version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- Test -->
+        <dependency>
+            <groupId>org.apache.tomee</groupId>
+            <artifactId>tomee-jaxrs</artifactId>
+            <version>${tomee-version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.tomee</groupId>
+            <artifactId>arquillian-tomee-embedded</artifactId>
+            <version>${tomee-version}</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <finalName>ROOT</finalName>
+
+        <plugins>
+            <plugin>
+                <groupId>org.apache.tomee.maven</groupId>
+                <artifactId>tomee-maven-plugin</artifactId>
+                <version>${tomee-version}</version>
+                <configuration>
+                    <tomeeClassifier>plus</tomeeClassifier>
+                    <forceJspDevelopment>false</forceJspDevelopment>
+                    <execFile>${project.build.directory}/app.jar</execFile>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <profiles>
+        <profile>
+            <id>rebel</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.tomee.maven</groupId>
+                        <artifactId>tomee-maven-plugin</artifactId>
+                        <configuration>
+                            <args>
+                                -agentpath:${project.build.directory}/apache-tomee/lib/libjrebel${sun.arch.data.model}.${lib-extension}
+                            </args>
+                            <libs>
+                                <lib>unzip:jrebel:jrebel:${jrebel-version}:zip</lib>
+                            </libs>
+                        </configuration>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.zeroturnaround</groupId>
+                        <artifactId>jrebel-maven-plugin</artifactId>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
+    <repositories>
+        <repository>
+            <id>bintray</id>
+            <url>http://dl.bintray.com/walkingdevs/mvn</url>
+        </repository>
+    </repositories>
+
+    <properties>
+        <jee-api-groupId>org.apache.tomee</jee-api-groupId>
+        <jee-api-artifactId>javaee-api</jee-api-artifactId>
+        <jee-api-version>7.0-1</jee-api-version>
+
+        <tomee-version>7.0.2</tomee-version>
+        <tomee-plugin-version>${tomee-version}</tomee-plugin-version>
+        <tomee-commons-lang3-version>3.5</tomee-commons-lang3-version>
+
+        <jrebel-version>6.4.4</jrebel-version>
+    </properties>
+</project>
