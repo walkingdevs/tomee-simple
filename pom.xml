@@ -9,7 +9,7 @@
     </parent>
 
     <artifactId>tomee-simple</artifactId>
-    <version>1.7.4</version>
+    <version>7.0.0</version>
     <packaging>maven-archetype</packaging>
 
     <build>

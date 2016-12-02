@@ -14,10 +14,11 @@
     <packaging>war</packaging>
 
     <dependencies>
+        <!-- TomEE provided -->
         <dependency>
-            <groupId>${jee-api-groupId}</groupId>
-            <artifactId>${jee-api-artifactId}</artifactId>
-            <version>${jee-api-version}</version>
+            <groupId>org.apache.tomee</groupId>
+            <artifactId>javaee-api</artifactId>
+            <version>7.0-1</version>
             <scope>provided</scope>
         </dependency>
 
@@ -29,9 +30,9 @@
         </dependency>
 
         <dependency>
-            <groupId>org.apache.openejb</groupId>
+            <groupId>org.apache.tomee</groupId>
             <artifactId>openejb-core</artifactId>
-            <version>4.7.4</version>
+            <version>${tomee-version}</version>
             <scope>provided</scope>
         </dependency>
 
@@ -81,7 +82,7 @@
                                 -agentpath:${project.build.directory}/apache-tomee/lib/libjrebel${sun.arch.data.model}.${lib-extension}
                             </args>
                             <libs>
-                                <lib>unzip:jrebel:jrebel:${jrebel-version}</lib>
+                                <lib>unzip:jrebel:jrebel:7.0.0</lib>
                             </libs>
                         </configuration>
                     </plugin>
@@ -102,12 +103,6 @@
     </repositories>
 
     <properties>
-        <jee-api-groupId>org.apache.openejb</jee-api-groupId>
-        <jee-api-artifactId>javaee-api</jee-api-artifactId>
-        <jee-api-version>6.0-6</jee-api-version>
-
         <tomee-version>1.7.4</tomee-version>
-
-        <jrebel-version>7.0.0</jrebel-version>
     </properties>
 </project>
