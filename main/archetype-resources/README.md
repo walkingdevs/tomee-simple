@@ -11,6 +11,14 @@
     mvn clean package tomee:exec -DskipTests
     docker build --rm -t app .
 
+    # How to run docker?
+    
+    docker run --restart always -d \
+               --name app \
+               -v /var/logs/app:/logs \
+               -p 8080:8080 \
+               app
+
 **Params**
     
     Root     /
