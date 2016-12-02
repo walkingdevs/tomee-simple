@@ -62,7 +62,6 @@
                 <version>${tomee-version}</version>
                 <configuration>
                     <tomeeClassifier>plus</tomeeClassifier>
-                    <forceJspDevelopment>false</forceJspDevelopment>
                     <execFile>${project.build.directory}/app.jar</execFile>
                 </configuration>
             </plugin>
