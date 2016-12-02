@@ -1,17 +1,17 @@
-## Testing
+**Testing**
 
     mvn clean test
 
-## Running
+**Running**
 
     mvn clean package tomee:run -DskipTests
 
-## Shipping
+**Shipping**
 
     mvn clean package tomee:exec -DskipTests
     docker build --rm -t app .
 
-## Params
+**Params**
     
     Root     /
     Binding  0.0.0.0
@@ -19,7 +19,7 @@
     
     http://localhost:8080
 
-## Jrebel
+**Jrebel**
 
     mvn clean package tomee:run -Prebel
 
