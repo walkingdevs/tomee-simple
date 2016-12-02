@@ -11,7 +11,7 @@ CLI:
     mvn archetype:generate \
         -DarchetypeGroupId=walkingdevs \
         -DarchetypeArtifactId=tomee-simple \
-        -DarchetypeVersion=1.7.4 \
+        -DarchetypeVersion=6.0 \
         -DarchetypeRepository=http://dl.bintray.com/walkingdevs/mvn \
         -DgroupId=test \
         -DartifactId=app \
