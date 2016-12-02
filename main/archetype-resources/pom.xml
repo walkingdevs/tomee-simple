@@ -24,20 +24,27 @@
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
-            <version>${tomee-commons-lang3-version}</version>
+            <version>3.3.2</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.openejb</groupId>
+            <artifactId>openejb-core</artifactId>
+            <version>4.7.4</version>
             <scope>provided</scope>
         </dependency>
 
         <!-- Test -->
         <dependency>
-            <groupId>org.apache.tomee</groupId>
+            <groupId>org.apache.openejb</groupId>
             <artifactId>tomee-jaxrs</artifactId>
             <version>${tomee-version}</version>
             <scope>test</scope>
         </dependency>
 
         <dependency>
-            <groupId>org.apache.tomee</groupId>
+            <groupId>org.apache.openejb</groupId>
             <artifactId>arquillian-tomee-embedded</artifactId>
             <version>${tomee-version}</version>
             <scope>test</scope>
@@ -49,7 +56,7 @@
 
         <plugins>
             <plugin>
-                <groupId>org.apache.tomee.maven</groupId>
+                <groupId>org.apache.openejb.maven</groupId>
                 <artifactId>tomee-maven-plugin</artifactId>
                 <version>${tomee-version}</version>
                 <configuration>
@@ -67,14 +74,14 @@
             <build>
                 <plugins>
                     <plugin>
-                        <groupId>org.apache.tomee.maven</groupId>
+                        <groupId>org.apache.openejb.maven</groupId>
                         <artifactId>tomee-maven-plugin</artifactId>
                         <configuration>
                             <args>
                                 -agentpath:${project.build.directory}/apache-tomee/lib/libjrebel${sun.arch.data.model}.${lib-extension}
                             </args>
                             <libs>
-                                <lib>unzip:jrebel:jrebel:${jrebel-version}:zip</lib>
+                                <lib>unzip:jrebel:jrebel:${jrebel-version}</lib>
                             </libs>
                         </configuration>
                     </plugin>
@@ -95,14 +102,12 @@
     </repositories>
 
     <properties>
-        <jee-api-groupId>org.apache.tomee</jee-api-groupId>
+        <jee-api-groupId>org.apache.openejb</jee-api-groupId>
         <jee-api-artifactId>javaee-api</jee-api-artifactId>
-        <jee-api-version>7.0-1</jee-api-version>
+        <jee-api-version>6.0-6</jee-api-version>
 
-        <tomee-version>7.0.2</tomee-version>
-        <tomee-plugin-version>${tomee-version}</tomee-plugin-version>
-        <tomee-commons-lang3-version>3.5</tomee-commons-lang3-version>
+        <tomee-version>1.7.4</tomee-version>
 
-        <jrebel-version>6.4.4</jrebel-version>
+        <jrebel-version>7.0.0</jrebel-version>
     </properties>
 </project>
