@@ -16,9 +16,9 @@
     <dependencies>
         <!-- TomEE provided -->
         <dependency>
-            <groupId>org.apache.tomee</groupId>
+            <groupId>org.apache.openejb</groupId>
             <artifactId>javaee-api</artifactId>
-            <version>7.0-1</version>
+            <version>6.0-6</version>
             <scope>provided</scope>
         </dependency>
 
@@ -30,9 +30,9 @@
         </dependency>
 
         <dependency>
-            <groupId>org.apache.tomee</groupId>
+            <groupId>org.apache.openejb</groupId>
             <artifactId>openejb-core</artifactId>
-            <version>${tomee-version}</version>
+            <version>4.7.4</version>
             <scope>provided</scope>
         </dependency>
 
@@ -62,7 +62,6 @@
                 <version>${tomee-version}</version>
                 <configuration>
                     <tomeeClassifier>plus</tomeeClassifier>
-                    <forceJspDevelopment>false</forceJspDevelopment>
                     <execFile>${project.build.directory}/app.jar</execFile>
                 </configuration>
             </plugin>
