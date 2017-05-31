@@ -4,7 +4,7 @@
     <parent>
         <groupId>walkingdevs</groupId>
         <artifactId>parent</artifactId>
-        <version>5</version>
+        <version>8</version>
         <relativePath/>
     </parent>
 
@@ -63,6 +63,10 @@
                 <configuration>
                     <tomeeClassifier>jaxrs</tomeeClassifier>
                     <execFile>${project.build.directory}/app.jar</execFile>
+                    <libs>
+                        <lib>org.eclipse.persistence:eclipselink:${eclipselink-version}</lib>
+                        <lib>org.postgresql:postgresql:${postgres-version}</lib>
+                    </libs>
                 </configuration>
             </plugin>
         </plugins>
@@ -81,7 +85,9 @@
                                 -agentpath:${project.build.directory}/apache-tomee/lib/libjrebel${sun.arch.data.model}.${lib-extension}
                             </args>
                             <libs>
-                                <lib>unzip:jrebel:jrebel:7.0.0</lib>
+                                <lib>org.eclipse.persistence:eclipselink:${eclipselink-version}</lib>
+                                <lib>unzip:jrebel:jrebel:7.0.9</lib>
+                                <lib>org.postgresql:postgresql:${postgres-version}</lib>
                             </libs>
                         </configuration>
                     </plugin>
@@ -103,5 +109,7 @@
 
     <properties>
         <tomee-version>1.7.4</tomee-version>
+        <eclipselink-version>2.6.4</eclipselink-version>
+        <postgres-version>42.1.1</postgres-version>
     </properties>
 </project>

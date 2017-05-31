@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/walkingdevs/tomee-simple.svg?branch=master)](https://travis-ci.org/walkingdevs/tomee-simple)
-[![Download](https://api.bintray.com/packages/walkingdevs/mvn/tomee-simple/images/download.svg) ](https://bintray.com/walkingdevs/mvn/tomee-simple/_latestVersion)
+[![Download](https://api.bintray.com/packages/walkingdevs/mvn/tomee-simple/images/download.svg)](https://bintray.com/walkingdevs/mvn/tomee-simple/_latestVersion)
 
 ## What is it?
 - Simple JEE 6 WAR template based on TomEE 1.7.x
@@ -11,7 +11,7 @@ CLI:
     mvn archetype:generate \
         -DarchetypeGroupId=walkingdevs \
         -DarchetypeArtifactId=tomee-simple \
-        -DarchetypeVersion=6.1 \
+        -DarchetypeVersion=1.7.4 \
         -DarchetypeRepository=http://dl.bintray.com/walkingdevs/mvn \
         -DgroupId=test \
         -DartifactId=app \
