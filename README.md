@@ -11,11 +11,11 @@ CLI:
     mvn archetype:generate \
         -DarchetypeGroupId=walkingdevs \
         -DarchetypeArtifactId=tomee-simple \
-        -DarchetypeVersion=1.7.4 \
+        -DarchetypeVersion=1.7.5 \
         -DarchetypeRepository=http://dl.bintray.com/walkingdevs/mvn \
         -DgroupId=test \
         -DartifactId=app \
-        -Dversion=0.1
+        -Dversion=0
 
 ## Something wrong?
 

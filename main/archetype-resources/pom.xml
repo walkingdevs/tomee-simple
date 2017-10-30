@@ -4,7 +4,7 @@
     <parent>
         <groupId>walkingdevs</groupId>
         <artifactId>parent</artifactId>
-        <version>8</version>
+        <version>9</version>
         <relativePath/>
     </parent>
 
@@ -32,7 +32,7 @@
         <dependency>
             <groupId>org.apache.openejb</groupId>
             <artifactId>openejb-core</artifactId>
-            <version>4.7.4</version>
+            <version>4.7.5</version>
             <scope>provided</scope>
         </dependency>
 
@@ -61,10 +61,9 @@
                 <artifactId>tomee-maven-plugin</artifactId>
                 <version>${tomee-version}</version>
                 <configuration>
-                    <tomeeClassifier>jaxrs</tomeeClassifier>
+                    <tomeeClassifier>plume</tomeeClassifier>
                     <execFile>${project.build.directory}/app.jar</execFile>
                     <libs>
-                        <lib>org.eclipse.persistence:eclipselink:${eclipselink-version}</lib>
                         <lib>org.postgresql:postgresql:${postgres-version}</lib>
                     </libs>
                 </configuration>
@@ -85,8 +84,7 @@
                                 -agentpath:${project.build.directory}/apache-tomee/lib/libjrebel${sun.arch.data.model}.${lib-extension}
                             </args>
                             <libs>
-                                <lib>org.eclipse.persistence:eclipselink:${eclipselink-version}</lib>
-                                <lib>unzip:jrebel:jrebel:7.0.9</lib>
+                                <lib>unzip:jrebel:jrebel:7.1.1</lib>
                                 <lib>org.postgresql:postgresql:${postgres-version}</lib>
                             </libs>
                         </configuration>
@@ -108,8 +106,7 @@
     </repositories>
 
     <properties>
-        <tomee-version>1.7.4</tomee-version>
-        <eclipselink-version>2.6.4</eclipselink-version>
-        <postgres-version>42.1.1</postgres-version>
+        <tomee-version>1.7.5</tomee-version>
+        <postgres-version>42.1.4</postgres-version>
     </properties>
 </project>
