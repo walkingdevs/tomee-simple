@@ -1,1 +1,1 @@
-package
+package tomee:run -DskipTests

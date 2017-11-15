@@ -4,7 +4,7 @@
     <parent>
         <groupId>walkingdevs</groupId>
         <artifactId>parent</artifactId>
-        <version>5</version>
+        <version>9</version>
         <relativePath/>
     </parent>
 
@@ -32,7 +32,7 @@
         <dependency>
             <groupId>org.apache.tomee</groupId>
             <artifactId>openejb-core</artifactId>
-            <version>${tomee-version}</version>
+            <version>${tomee}</version>
             <scope>provided</scope>
         </dependency>
 
@@ -40,30 +40,31 @@
         <dependency>
             <groupId>org.apache.tomee</groupId>
             <artifactId>tomee-jaxrs</artifactId>
-            <version>${tomee-version}</version>
+            <version>${tomee}</version>
             <scope>test</scope>
         </dependency>
 
         <dependency>
             <groupId>org.apache.tomee</groupId>
             <artifactId>arquillian-tomee-embedded</artifactId>
-            <version>${tomee-version}</version>
+            <version>${tomee}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
 
     <build>
         <finalName>ROOT</finalName>
-
         <plugins>
             <plugin>
                 <groupId>org.apache.tomee.maven</groupId>
                 <artifactId>tomee-maven-plugin</artifactId>
-                <version>${tomee-version}</version>
+                <version>${tomee}</version>
                 <configuration>
-                    <tomeeClassifier>plus</tomeeClassifier>
-                    <forceJspDevelopment>false</forceJspDevelopment>
+                    <tomeeClassifier>plume</tomeeClassifier>
                     <execFile>${project.build.directory}/app.jar</execFile>
+                    <libs>
+                        <lib>org.postgresql:postgresql:${pg}</lib>
+                    </libs>
                 </configuration>
             </plugin>
         </plugins>
@@ -82,7 +83,7 @@
                                 -agentpath:${project.build.directory}/apache-tomee/lib/libjrebel${sun.arch.data.model}.${lib-extension}
                             </args>
                             <libs>
-                                <lib>unzip:jrebel:jrebel:7.0.0</lib>
+                                <lib>unzip:jrebel:jrebel:${jrebel}</lib>
                             </libs>
                         </configuration>
                     </plugin>
@@ -103,6 +104,8 @@
     </repositories>
 
     <properties>
-        <tomee-version>7.0.0</tomee-version>
+        <tomee>7.0.4</tomee>
+        <jrebel>7.1.1</jrebel>
+        <pg>42.1.4</pg>
     </properties>
 </project>
